@@ -11,9 +11,7 @@
 <body>
     <!-- 将来 new的vue实例，会控制这个元素中的所有内容 -->
     <!-- vue 实例所控制的这个元素区域，就是我们的v -->
-    <div id="app">
-        <p>{{ msg }}</p>
-    </div>
+    <div id="app">{{ content }}</div>
 
     <script>
         //2 创建一个vue实例
@@ -23,9 +21,14 @@
             el: '#app', //表示 当前我们new的这个vue实例，要控制页面上的那个区域
             //这里的data，就是mvvm中的m，专门用来保存 每个页面的数据
             data:{   //data 属性中存放的事 el中用到的数据
-                msg: '欢迎学习vue'   //通过vue提供的指令，很方便的就能把书渲染的到页面上
+                content: 'hello world '   //通过vue提供的指令，很方便的就能把书渲染的到页面上
             }
-        })
+        });
+
+        //数据的内容变了之后，页面的值也跟着变
+        setTimeout(function(){
+            vm.$data.content = 'hello vue'
+        },2000);
     </script>
 </body>
 </html>
